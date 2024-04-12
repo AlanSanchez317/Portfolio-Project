@@ -1,10 +1,59 @@
+
 body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    height: 100%;
-    background: #add8e6; /* Lighter blue background */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  background: #203363; /* Lighter blue background */
 }
+
+#bottom-right-image {
+  position: fixed;
+  right: 10px;  /* Add some margin if you want */
+  bottom: 10px; /* Add some margin if you want */
+  width: 250px; /* Set the width to the size you desire */
+  z-index: 10; /* Adjust if necessary based on other page elements */
+}
+
+#left-overlay-image {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%; /* Full height of the viewport */
+  z-index: 15; /* Ensure it's above everything else */
+  pointer-events: none; /* Allows click events to pass through to elements underneath */
+}
+
+#foam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* span the full width of the page */
+  max-height: 50%; /* max height as a percentage of the page height */
+  object-fit: cover; /* this will cover the area without stretching the image */
+  z-index: 8; /* Ensure this is below the gradient overlay */
+}
+
+#gradient-overlay {
+  position: fixed; /* Use fixed to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Set to 100% to cover the full height of the viewport */
+  z-index: 9; /* Below the menu links but above the background */
+}
+
+#full-page-image {
+  position: fixed;
+  top: 0;
+  left: 0; /* Stick to the left side of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  width: auto; /* Scale width automatically to maintain aspect ratio */
+  max-width: 90vw; /* Increase this value to make the image wider */
+  z-index: 9; /* Above other elements */
+  pointer-events: none; /* Clicks pass through */
+}
+
 
 .background {
     position: absolute;
@@ -14,25 +63,39 @@ body, html {
     overflow: hidden;
 }
 
-/* Additional CSS to style the menu links */
 #menu {
-    position: fixed;
-    top: 10%; /* Adjust as needed to place over the foam */
-    left: 0;
-    width: 100%;
-    text-align: center;
-    z-index: 10; /* Ensure the text appears above the canvas */
-  }
-  
-  .menu-link {
-    display: inline-block;
-    margin: 0 20px;
-    font-size: 48px; /* Adjust size as needed */
-    color: white;
-    text-decoration: none;
-    font-family: 'YourFontName', sans-serif; /* Use your custom font */
-    /* Add your CSS distortion effect here */
-  }
+  position: fixed;
+  top: 55%; /* Center the menu vertically */
+  left: 800px; /* Adjust as needed for the distance from the left side */
+  transform: translateY(-50%); /* Align the center of the menu with the middle */
+  z-index: 10; /* Above the gradient overlay */
+}
+
+.menu-link {
+  display: block;
+  margin: 20px 0;
+  font-size: 100px;
+  color: black; /* Change text color to black */
+  text-decoration: none;
+  font-family: 'YourFontName', sans-serif;
+  transform-origin: left center;
+}
+
+#home-link {
+  transform: rotate(-50deg); /* Angle the HOME link upwards */
+  animation: wave-animation-home 3s ease-in-out infinite;
+
+}
+
+#projects-link {
+  animation: wave-animation 3s ease-in-out infinite;
+}
+
+#skills-link {
+  transform: rotate(50deg); /* Angle the SKILLS link downwards */
+  animation: wave-animation-skills 3s ease-in-out infinite;
+
+}
   
   /* Example of a keyframe animation for a simple wave effect */
   @keyframes wave-animation {
@@ -44,3 +107,71 @@ body, html {
     animation: wave-animation 3s ease-in-out infinite;
   }
   
+  @keyframes wave-animation-home {
+    0%, 100% {
+      transform: translateY(-10px) rotate(-22deg);
+    }
+    50% {
+      transform: translateY(10px) rotate(-22deg);
+    }
+  }
+  
+  /* Define keyframes for SKILLS link with rotation and wave animation */
+  @keyframes wave-animation-skills {
+    0%, 100% {
+      transform: translateY(-10px) rotate(22deg);
+    }
+    50% {
+      transform: translateY(10px) rotate(22deg);
+    }
+  }
+
+  .wireframe{
+    height: 100%;
+    opacity: 30%;
+  
+  }
+
+  @media (max-width: 768px) {
+    #full-page-image {
+      width: 50%; /* Reduce the width on smaller screens */
+      height: 100%;
+    }
+  
+    #menu {
+      left: 50px; /* Move the menu closer to the edge */
+      font-size: 60px; /* Smaller font size for the menu */
+    }
+  
+    .menu-link {
+      margin: 10px 0; /* Less space between menu items */
+    }
+  
+    /* Adjust the animations or transformations if needed */
+    #home-link {
+      transform: rotate(-20deg); /* Less rotation for smaller screens */
+    }
+  
+    #skills-link {
+      transform: rotate(20deg); /* Less rotation for smaller screens */
+    }
+  }
+  
+  /* Media query for mobile phones and smaller devices */
+  @media (max-width: 480px) {
+    #full-page-image {
+      width: 100%; /* Let the image take the full width to avoid being too thin */
+    }
+  
+    #menu {
+      left: 20px; /* Closer to the edge */
+      top: 45%; /* Adjust vertical position if needed */
+      font-size: 40px; /* Even smaller font size for very small screens */
+    }
+  
+    .menu-link {
+      /* Adjust transformations and animations as needed */
+      transform: none; /* You might want to remove the rotation on very small screens */
+      animation: none; /* Optionally remove animations for performance */
+    }
+  }

@@ -6,22 +6,28 @@ precision highp float;
 uniform sampler2D uTexture;
 uniform float uTime;
 uniform vec2 uResolution;
-uniform float uFoamHeight; // Uniform for the relative height of the foam texture
+uniform float uScale; // Uniform for scaling the foam texture
 
 varying vec2 vTexCoord;
 
 void main() {
-  // Calculate the y-coordinate for the texture with the wave effect
-  float wave = sin(vTexCoord.x * 10.0 + uTime * 5.0) * 0.02;
+  // Scale the texture coordinates
+  vec2 scaledUV = vec2(vTexCoord.x, vTexCoord.y * uScale);
   
-  // Adjusted vTexCoord for the foam texture
-  vec2 foamTexCoord = vec2(vTexCoord.x, vTexCoord.y + wave);
+  // Flip the texture vertically
+  scaledUV.y = 1.0 - scaledUV.y;
+  
+  // Calculate the y-coordinate for the texture with the wave effect
+  float wave = sin(scaledUV.x * 10.0 + uTime * 5.0) * 0.02 * uScale;
 
-  // Get the color from the foam texture or the background color
-  // The check here ensures the foam texture is drawn on the top part of the canvas
-  if (vTexCoord.y > 1.0 - uFoamHeight) {
-    gl_FragColor = texture2D(uTexture, foamTexCoord);
+  // Apply the wave effect
+  scaledUV.y += wave;
+
+  // Check if the fragment is within the foam area
+  if (scaledUV.y <= uScale) {
+    gl_FragColor = texture2D(uTexture, scaledUV);
   } else {
-    gl_FragColor = vec4(0.678, 0.847, 0.902, 1.0); // Light blue background color
+    // Below the foam texture, fill with the solid background color
+    gl_FragColor = vec4(0.125, 0.196, 0.388, 1.0); // Light blue background color
   }
 }
