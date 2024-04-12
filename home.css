@@ -1,0 +1,46 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background: #add8e6; /* Lighter blue background */
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 25%);
+    overflow: hidden;
+}
+
+/* Additional CSS to style the menu links */
+#menu {
+    position: fixed;
+    top: 10%; /* Adjust as needed to place over the foam */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10; /* Ensure the text appears above the canvas */
+  }
+  
+  .menu-link {
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 48px; /* Adjust size as needed */
+    color: white;
+    text-decoration: none;
+    font-family: 'YourFontName', sans-serif; /* Use your custom font */
+    /* Add your CSS distortion effect here */
+  }
+  
+  /* Example of a keyframe animation for a simple wave effect */
+  @keyframes wave-animation {
+    0%, 100% { transform: translateY(-10px); }
+    50% { transform: translateY(10px); }
+  }
+  
+  .menu-link {
+    animation: wave-animation 3s ease-in-out infinite;
+  }
+  
