@@ -25,13 +25,10 @@ body, html {
 }
 
 #foam {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* span the full width of the page */
-  max-height: 50%; /* max height as a percentage of the page height */
-  object-fit: cover; /* this will cover the area without stretching the image */
-  z-index: 8; /* Ensure this is below the gradient overlay */
+  max-height: 50%; /* Control the size as needed */
+  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 
 #gradient-overlay {
@@ -45,13 +42,13 @@ body, html {
 
 #full-page-image {
   position: fixed;
-  top: 0;
-  left: 0; /* Stick to the left side of the viewport */
-  height: 100vh; /* Full height of the viewport */
-  width: auto; /* Scale width automatically to maintain aspect ratio */
-  max-width: 90vw; /* Increase this value to make the image wider */
-  z-index: 9; /* Above other elements */
-  pointer-events: none; /* Clicks pass through */
+  top: -2%; /* Slightly increase the offset to move more of the image offscreen */
+  left: -3%; /* Keep aligned to the left side of the viewport */
+  width: 55vw; /* Increase the width to make the image larger */
+  height: 105vh; /* Increase the height to ensure the top part is offscreen */
+  z-index: 9; /* Maintain layering order */
+  pointer-events: none; /* Ensure interactions pass through */
+  object-fit: cover; /* Maintain aspect ratio while covering the area */
 }
 
 
@@ -65,26 +62,74 @@ body, html {
 
 #menu {
   position: fixed;
-  top: 55%; /* Center the menu vertically */
-  left: 800px; /* Adjust as needed for the distance from the left side */
-  transform: translateY(-50%); /* Align the center of the menu with the middle */
+  top: 55%; /* Adjusted to center the menu vertically */
+  left: 59%; /* Adjusted to center the menu horizontally */
+  transform: translate(-50%, -50%); /* Center the menu */
   z-index: 10; /* Above the gradient overlay */
 }
 
 .menu-link {
-  display: block;
-  margin: 20px 0;
-  font-size: 100px;
-  color: black; /* Change text color to black */
-  text-decoration: none;
-  font-family: 'YourFontName', sans-serif;
-  transform-origin: left center;
+  position: relative; /* Allows absolute positioning inside */
+  display: block; /* Block to take the width of its content */
+  margin: 20px; /* Space out the links */
+  cursor: pointer; /* Change mouse cursor on hover */
+  transform-origin: left center; /* The transformations pivot around the center left of the link */
 }
+
+
+.menu-link img {
+  display: block;
+  max-width: 55%; /* Increase the max-width to make the SVGs larger */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Smooth transform transition */
+  transform-origin: center; /* Ensure transformations are centered */
+  padding: 0;
+}
+
+.menu-link span {
+  display: none; /* Ensures that the text does not take up space or affect layout */
+}
+
+
+.hover-background {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  transform: translateY(-50%) scale(0); /* Start with the image scaled down to zero */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s ease, transform 0.3s ease; /* Slower transition for more visibility */
+  z-index: -1;
+}
+
+#projects-link .hover-background{
+  top: 30%;
+}
+
+.menu-link:hover .hover-background {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-50%) scale(4); /* Increase the scale to make the image larger */
+  transition-delay: 0s; /* Apply the animation immediately on hover */
+}
+
+/* Individual hover background transformations */
+#home-link .hover-background {
+  transform: translateY(-50%) rotate(0deg); /* Adjust the angle to match 'HOME' */
+}
+
+#projects-link .hover-background {
+  transform: translateY(-50%) rotate(2deg); /* 'PROJECTS' might not need rotation */
+}
+
+#skills-link .hover-background {
+  transform: translateY(-50%) rotate(0deg); /* Adjust the angle to match 'SKILLS' */
+}
+
 
 #home-link {
   transform: rotate(-50deg); /* Angle the HOME link upwards */
   animation: wave-animation-home 3s ease-in-out infinite;
-
 }
 
 #projects-link {
@@ -94,8 +139,105 @@ body, html {
 #skills-link {
   transform: rotate(50deg); /* Angle the SKILLS link downwards */
   animation: wave-animation-skills 3s ease-in-out infinite;
-
 }
+
+.switch {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  z-index: 9999;  /* Ensure it's above everything */
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.song-control {
+  position: fixed;
+  top: 10px;
+  right: 75px; 
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-right: 5px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 17px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  line-height: 34px;
+  user-select: none; 
+  z-index: 1000; 
+}
+
+#prevSong {
+  right: 140px; 
+}
+
+#nextSong {
+  right: 70px; 
+}
+
+.now-playing {
+  position: fixed;
+  top: 50px;  
+  right: 10px; 
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+}
+
+
   
   /* Example of a keyframe animation for a simple wave effect */
   @keyframes wave-animation {
@@ -109,20 +251,20 @@ body, html {
   
   @keyframes wave-animation-home {
     0%, 100% {
-      transform: translateY(-10px) rotate(-22deg);
+      transform: translateY(-10px) rotate(-14deg);
     }
     50% {
-      transform: translateY(10px) rotate(-22deg);
+      transform: translateY(10px) rotate(-14deg);
     }
   }
   
   /* Define keyframes for SKILLS link with rotation and wave animation */
   @keyframes wave-animation-skills {
     0%, 100% {
-      transform: translateY(-10px) rotate(22deg);
+      transform: translateY(-10px) rotate(14deg);
     }
     50% {
-      transform: translateY(10px) rotate(22deg);
+      transform: translateY(10px) rotate(14deg);
     }
   }
 
@@ -132,46 +274,67 @@ body, html {
   
   }
 
-  @media (max-width: 768px) {
-    #full-page-image {
-      width: 50%; /* Reduce the width on smaller screens */
-      height: 100%;
-    }
-  
-    #menu {
-      left: 50px; /* Move the menu closer to the edge */
-      font-size: 60px; /* Smaller font size for the menu */
-    }
-  
-    .menu-link {
-      margin: 10px 0; /* Less space between menu items */
-    }
-  
-    /* Adjust the animations or transformations if needed */
-    #home-link {
-      transform: rotate(-20deg); /* Less rotation for smaller screens */
-    }
-  
-    #skills-link {
-      transform: rotate(20deg); /* Less rotation for smaller screens */
-    }
+/* Add your existing CSS above this line */
+
+/* Add your existing CSS above this line */
+
+@media (max-width: 1024px) {
+  /* This applies to tablets and smaller laptops */
+  #full-page-image, #left-overlay-image {
+    width: 100vw; /* Take full width of the viewport */
+    height: auto; /* Adjust height automatically */
   }
-  
-  /* Media query for mobile phones and smaller devices */
-  @media (max-width: 480px) {
-    #full-page-image {
-      width: 100%; /* Let the image take the full width to avoid being too thin */
-    }
-  
-    #menu {
-      left: 20px; /* Closer to the edge */
-      top: 45%; /* Adjust vertical position if needed */
-      font-size: 40px; /* Even smaller font size for very small screens */
-    }
-  
-    .menu-link {
-      /* Adjust transformations and animations as needed */
-      transform: none; /* You might want to remove the rotation on very small screens */
-      animation: none; /* Optionally remove animations for performance */
-    }
+
+  #menu {
+    left: 50%; /* Center the menu horizontally */
+    top: 50%; /* Center the menu vertically */
+    transform: translate(-50%, -50%);
+    font-size: 4vw; /* Adjust font size based on viewport width */
   }
+
+  .menu-link img {
+    max-width: 15vw; /* Use viewport width to determine max size */
+    min-width: 120px; /* Set a minimum width to prevent SVGs from becoming too small */
+  }
+
+  .hover-background {
+    width: 20vw; /* Scale hover background based on viewport width */
+    min-width: 150px; /* Minimum size to keep it visible */
+  }
+}
+
+@media (max-width: 480px) {
+  /* This applies to mobile phones */
+  #full-page-image, #left-overlay-image {
+    position: fixed;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    top: 0;
+    left: 0;
+    object-fit: cover; /* Cover the entire viewport */
+  }
+
+  #menu {
+    width: 100%; /* Full viewport width */
+    left: 0; /* Align to the left edge */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center transform vertically */
+    text-align: center; /* Center the text */
+    font-size: 8vw; /* Font size based on viewport width */
+  }
+
+  .menu-link img {
+    width: 30vw; /* Adjust image size based on viewport width */
+    min-width: 100px; /* Minimum width for the SVGs */
+    margin: 0 auto; /* Center the images */
+  }
+
+  .menu-link {
+    margin: 5vw 0; /* Vertical spacing based on viewport width */
+    display: block; /* Stack the links */
+  }
+
+  .hover-background {
+    display: none; /* Hide the hover effect on mobile */
+  }
+}
