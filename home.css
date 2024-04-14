@@ -44,7 +44,7 @@ body, html {
   position: fixed;
   top: -2%; /* Slightly increase the offset to move more of the image offscreen */
   left: -3%; /* Keep aligned to the left side of the viewport */
-  width: 55vw; /* Increase the width to make the image larger */
+  width: 48vw; /* Increase the width to make the image larger */
   height: 105vh; /* Increase the height to ensure the top part is offscreen */
   z-index: 9; /* Maintain layering order */
   pointer-events: none; /* Ensure interactions pass through */
@@ -63,7 +63,7 @@ body, html {
 #menu {
   position: fixed;
   top: 55%; /* Adjusted to center the menu vertically */
-  left: 59%; /* Adjusted to center the menu horizontally */
+  left: 55%; /* Adjusted to center the menu horizontally */
   transform: translate(-50%, -50%); /* Center the menu */
   z-index: 10; /* Above the gradient overlay */
 }
@@ -229,15 +229,56 @@ input:checked + .slider:before {
   right: 70px; 
 }
 
-.now-playing {
+
+#startAudio {
   position: fixed;
-  top: 50px;  
-  right: 10px; 
-  color: rgb(0, 0, 0);
-  font-size: 18px;
+  top: 55px;  /* Positioned below the switch */
+  right: 10px;
+  width: 100px;
+  height: 34px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 17px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  line-height: 34px;
+  user-select: none; /* Prevent text selection */
+  z-index: 9998; /* Ensure it is just below the toggle switch */
+}
+
+#startAudio:hover {
+  background-color: #1976D2;
 }
 
 
+#nowPlaying {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FFFFFF;
+  text-shadow: 0px 0px 8px rgba(0,0,0,0.7); /* Enhance visibility */
+  font-size: 18px;
+  z-index: 20; /* Ensure it is visible above other elements */
+  font-family: BoldFont;
+}
+
+#visualizer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Full width of the viewport */
+  height: 50vh; /* Set to full height of the viewport */
+  z-index: 1; /* Ensure it is below most content but above the background */
+}
+
+
+@font-face {
+  font-family: BoldFont;
+  src: url('./Media/Font/boldfont.ttf');
+}
   
   /* Example of a keyframe animation for a simple wave effect */
   @keyframes wave-animation {

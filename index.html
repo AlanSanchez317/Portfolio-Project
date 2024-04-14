@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./home.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.ripples/dist/jquery.ripples-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+
+
+    <title>Portfolio Page</title>
+</head>
+<body>
+    
+    <img id="foam" src="./Media/HomeSprites/Oceanfoam.svg" alt="Foam" style="width: 100%; position: absolute; top: 0; left: 0;"/>
+    <img id="gradient-overlay" src="./Media/HomeSprites/imagegradient.png" alt="Gradient Overlay" />
+    <img id="left-overlay-image" src="./Media/HomeSprites/01Port.png" alt="Left Overlay" />
+    <img id="bottom-right-image" src="./Media/HomeSprites/bottomhomemenu.svg" alt="Interactive Element" />
+    <img id="full-page-image" src="./Media/HomeSprites/omgitsme.svg" alt="Full Page Decorative" />
+
+
+    <label class="switch">
+        <input type="checkbox" id="toggleMusic">
+        <span class="slider round"></span>
+      </label>  
+      <div class="song-controls">
+        <button id="prevSong" class="song-control">Prev</button>
+        <button id="nextSong" class="song-control">Next</button>
+        <div id="nowPlaying" class="now-playing">Now playing...</div>
+      </div>
+      <button id="startAudio">Start Audio</button>
+
+      
+      <canvas id="visualizer"></canvas>
+
+    <div id="menu">
+        <div class="menu-link" id="home-link">
+            <a href="./infopage.html">
+              <img src="./Media/HomeSprites/Home.svg" alt="Home">
+              <div class="hover-background">
+                <img src="./Media/HomeSprites/Hover.png" alt="Hover Background">
+              </div>
+            </a>
+          </div>
+          <div class="menu-link" id="projects-link">
+            <a href="#">
+              <img src="./Media/HomeSprites/Projects.svg" alt="Projects">
+              <div class="hover-background">
+                <img src="./Media/HomeSprites/Hover.png" alt="Hover Background">
+              </div>
+            </a>
+          </div>
+          <div class="menu-link" id="skills-link">
+            <a href="#">
+              <img src="./Media/HomeSprites/Skills.svg" alt="Skills">
+              <div class="hover-background">
+                <img src="./Media/HomeSprites/Hover.png" alt="Hover Background">
+              </div>
+            </a>
+          </div>
+    </div>
+
+      
+    <audio id="clickSound" src="./Media/Audio/Persona 5 - Select Sound Effect.mp3" preload="auto"></audio>
+    <audio id="backgroundMusic" src="./Media/Audio/Persona3ColorYourLight.mp3" preload="auto" loop></audio>
+
+
+    
+    <script src="./home.js" defer></script>
+</body>
+</html>
