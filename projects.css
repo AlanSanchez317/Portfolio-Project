@@ -1,0 +1,46 @@
+#page-wide-overlay {
+    position: fixed;
+    top: 0; /* Align to the top of the viewport */
+    left: 0; /* Align to the left side of the viewport */
+    right: 0; /* Align to the right side of the viewport */
+    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
+    width: 100vw; /* Make it as wide as the full viewport */
+    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
+    z-index: 16; /* Above the other overlays */
+    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+  }
+
+  #purple-thing-overlay {
+    position: fixed;
+    top: 0; /* Align to the top of the viewport */
+    left: 0; /* Align to the left side of the viewport */
+    right: 0; /* Align to the right side of the viewport */
+    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
+    width: 100vw; /* Make it as wide as the full viewport */
+    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
+    z-index: 16; /* Above the other overlays */
+    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+  }
+
+  #list-text{
+      position: fixed;
+      top: 13%; /* Adjust as needed */
+      right: 84%; /* Position towards the right, but not far right */
+      bottom: 30px; /* Give some space at the bottom to account for the taskbar */
+      width: 12%; /* Adjust the width to the desired size */
+      height: auto; /* Maintain the aspect ratio */
+      z-index: 19; /* Above the previous full-page image overlay */
+      object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    }
+
+
+    #projecttab{
+      position: fixed;
+      top: 23%; /* Adjust as needed */
+      right: 63%; /* Position towards the right, but not far right */
+      bottom: 30px; /* Give some space at the bottom to account for the taskbar */
+      width: 35%; /* Adjust the width to the desired size */
+      height: auto; /* Maintain the aspect ratio */
+      z-index: 19; /* Above the previous full-page image overlay */
+      object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    }
