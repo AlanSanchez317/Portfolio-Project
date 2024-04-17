@@ -34,13 +34,40 @@
     }
 
 
-    #projecttab{
-      position: fixed;
-      top: 23%; /* Adjust as needed */
-      right: 63%; /* Position towards the right, but not far right */
-      bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-      width: 35%; /* Adjust the width to the desired size */
-      height: auto; /* Maintain the aspect ratio */
-      z-index: 19; /* Above the previous full-page image overlay */
-      object-fit: cover; /* Cover the available space without distorting the aspect ratio */
-    }
+    #projects-container {
+      width: 30%; /* Adjust as needed for your layout */
+      height: 1000px; /* Fixed height for the scrolling area */
+      overflow-y: auto; /* Enable vertical scrolling */
+      overflow-x: hidden;
+      position: relative; /* Needed for absolute child positioning */
+      z-index: 20; /* Adjust as needed */
+      transform: skew(-20deg); /* Skew the container to match your design */
+      margin-left: auto; /* Center the container if needed */
+      margin-right: auto; /* Center the container if needed */
+      padding-left: 30px;
+      padding-right: 30px;
+  }
+  
+  .project-item {
+      width: 100%; /* Use the full width of the container */
+      margin: 0 0 20px 0; /* Space between items, adjust as needed */
+      display: block; /* Images are inline by default, this makes them block level */
+      transform: skew(20deg); /* Un-skew each item to appear normal inside the skewed container */
+  }
+  
+  /* Custom scrollbar styles */
+  #projects-container::-webkit-scrollbar {
+      width: 10px;
+  }
+  
+  #projects-container::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Light gray track */
+  }
+  
+  #projects-container::-webkit-scrollbar-thumb {
+      background: #888; /* Darker gray thumb */
+  }
+  
+  #projects-container::-webkit-scrollbar-thumb:hover {
+      background: #555; /* Even darker gray on hover */
+  }
