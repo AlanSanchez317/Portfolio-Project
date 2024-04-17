@@ -36,38 +36,108 @@
 
     #projects-container {
       width: 30%; /* Adjust as needed for your layout */
-      height: 1000px; /* Fixed height for the scrolling area */
+      height: 900px; /* Fixed height for the scrolling area */
       overflow-y: auto; /* Enable vertical scrolling */
       overflow-x: hidden;
-      position: relative; /* Needed for absolute child positioning */
       z-index: 20; /* Adjust as needed */
-      transform: skew(-20deg); /* Skew the container to match your design */
-      margin-left: auto; /* Center the container if needed */
-      margin-right: auto; /* Center the container if needed */
+      transform: skew(20deg); /* Skew the container to match your design */
+      position: fixed; /* Changed from relative to fixed */
+      top: 23%; /* Adjust this value as needed to position it right below the LIST text */
+      right: 60%; /* Adjust this value as needed to align with the right edge of LIST text */
       padding-left: 30px;
       padding-right: 30px;
+      margin-bottom: 20px;
   }
   
   .project-item {
       width: 100%; /* Use the full width of the container */
       margin: 0 0 20px 0; /* Space between items, adjust as needed */
       display: block; /* Images are inline by default, this makes them block level */
-      transform: skew(20deg); /* Un-skew each item to appear normal inside the skewed container */
+      transform: skew(-20deg); /* Un-skew each item to appear normal inside the skewed container */
   }
   
   /* Custom scrollbar styles */
   #projects-container::-webkit-scrollbar {
-      width: 10px;
+      width: 20px;
   }
   
   #projects-container::-webkit-scrollbar-track {
       background: #f1f1f1; /* Light gray track */
+      border-radius: 10px;
   }
   
   #projects-container::-webkit-scrollbar-thumb {
       background: #888; /* Darker gray thumb */
+      border-radius: 10px;
   }
   
   #projects-container::-webkit-scrollbar-thumb:hover {
       background: #555; /* Even darker gray on hover */
   }
+
+  #select-overlay {
+    position: fixed;
+    right: 10px;  /* Add some margin if you want */
+    bottom: 10px; /* Add some margin if you want */
+    width: 400px; /* Set the width to the size you desire */
+    z-index: 10; /* Adjust if necessary based on other page elements */
+  }
+
+  #back-to-home {
+    position: fixed;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    padding: 10px 20px; /* Padding for a better click area */
+    background-color: #2196F3; /* Blue background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline from link */
+    font-size: 16px; /* Font size */
+    font-family: BoldFont;
+    border-radius: 50px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  #back-to-home:hover {
+    background-color: #1976D2; /* Darker blue on hover for visual feedback */
+  }
+
+  @media (max-width: 1024px) {
+    #list-text {
+      top: 10%; /* Adjust as needed for tablets */
+      right: 70%; /* Adjust as needed for tablets */
+    }
+  
+    #projects-container {
+      width: 50%; /* Increase width for tablets */
+      right: 50%; /* Center it more for tablets */
+      top: 25%; /* Adjust as needed for tablets */
+    }
+  
+    .project-item {
+      height: 100px; /* Adjust the size for tablets */
+    }
+  }
+  
+  /* Mobile screens */
+  @media (max-width: 767px) {
+    #list-text {
+      top: 8%; /* Adjust as needed for mobiles */
+      right: 50%; /* Adjust as needed for mobiles */
+      width: 40%; /* Increase size for mobiles */
+    }
+  
+    #projects-container {
+      width: 80%; /* Increase width for mobiles */
+      right: 10%; /* Center it more for mobiles */
+      top: 20%; /* Adjust as needed for mobiles */
+      height: 80vh; /* Use vh for responsive height on mobiles */
+      transform: none; /* Remove skew for better readability on mobiles */
+    }
+  
+    .project-item {
+      transform: none; /* Remove skew for items on mobiles */
+    }
+  }
+  
