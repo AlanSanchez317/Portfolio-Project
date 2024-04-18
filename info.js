@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const thumb = document.getElementById('info-text-thumb');
     const scrollbar = document.getElementById('info-text-scrollbar');
   
-    // Update thumb position and height based on scroll content
+    
     function updateThumb() {
         const contentHeight = content.scrollHeight;
         const visibleHeight = content.clientHeight;
@@ -120,20 +120,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const thumbPosition = (content.scrollTop / scrollableHeight) * (scrollbar.offsetHeight - thumbHeight);
       
         thumb.style.height = `${thumbHeight}px`;
-        thumb.style.transform = `translateY(${thumbPosition}px) skewY(-20deg)`; // Apply skew to match the design
+        thumb.style.transform = `translateY(${thumbPosition}px) skewY(-20deg)`; 
       }
       
-      // Initial update of the thumb position and size
+      
       updateThumb();
       
-      // Event listener to update the thumb when the content is scrolled
+      
       content.addEventListener('scroll', updateThumb);
       
-      // Event listeners for dragging the thumb
+      
       let isDragging = false;
       thumb.addEventListener('mousedown', (e) => {
         isDragging = true;
-        e.preventDefault(); // Prevent text selection
+        e.preventDefault(); 
       });
       
       document.addEventListener('mousemove', (e) => {
@@ -153,14 +153,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       function onScrollWheel(e) {
         const content = document.getElementById('info-text-content');
-        const delta = e.deltaY; // Get the amount of scroll from the wheel event
-        content.scrollTop += delta; // Add the delta to the current scroll top position
+        const delta = e.deltaY; 
+        content.scrollTop += delta; 
       
-        // Update the custom scrollbar position
+        
         updateThumb();
       }
       
-      // Add wheel event listener to the content container
+      
       document.getElementById('info-text-container').addEventListener('wheel', onScrollWheel);
 
   });

@@ -1,277 +1,270 @@
 #number-overlay {
     position: fixed;
-    top: 46%; /* Adjust as needed */
-    right: 15%; /* Position towards the right, but not far right */
-    transform: translateY(-50%); /* Center it vertically based on its own size */
-    z-index: 15; /* Same layer as the side overlay */
-    pointer-events: none; /* Make sure clicks go through to elements below */
-    width: 38%; /* Adjust the width to the desired size */
-    height: auto; /* Maintain the aspect ratio */
+    top: 46%; 
+    right: 15%; 
+    transform: translateY(-50%); 
+    z-index: 15; 
+    pointer-events: none; 
+    width: 38%; 
+    height: auto;
   }
   
   #page-wide-overlay {
     position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 0; /* Align to the left side of the viewport */
-    right: 0; /* Align to the right side of the viewport */
-    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-    width: 100vw; /* Make it as wide as the full viewport */
-    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
-    z-index: 16; /* Above the other overlays */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 30px; 
+    width: 100vw;
+    height: calc(100vh - 1px); 
+    z-index: 16; 
+    object-fit: cover; 
   }
   
   #full-page-decorative-top {
     position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 0; /* Align to the left side of the viewport */
-    right: 0; /* Align to the right side of the viewport */
-    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-    width: 100vw; /* Make it as wide as the full viewport */
-    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
-    z-index: 17; /* Above the previous full-page image overlay */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 30px; 
+    width: 100vw; 
+    height: calc(100vh - 1px); 
+    z-index: 17; 
+    object-fit: cover; 
   }
   
   #Avatar-Information {
     position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 0; /* Align to the left side of the viewport */
-    right: 0; /* Align to the right side of the viewport */
-    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-    width: 100vw; /* Make it as wide as the full viewport */
-    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
-    z-index: 19; /* Above the previous full-page image overlay */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 30px; 
+    width: 100vw; 
+    height: calc(100vh - 1px);
+    z-index: 19; 
+    object-fit: cover; 
   }
   
   #Cool-Blue-Thingy {
     position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 0; /* Align to the left side of the viewport */
-    right: 0; /* Align to the right side of the viewport */
-    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-    width: 100vw; /* Make it as wide as the full viewport */
-    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
-    z-index: 18; /* Above the previous full-page image overlay */
-    filter: brightness(100%); /* Start with the default brightness */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 30px; 
+    width: 100vw; 
+    height: calc(100vh - 1px); 
+    z-index: 18; 
+    filter: brightness(100%); 
+    object-fit: cover; 
   }
   
   .glow {
-    filter: brightness(150%); /* Increase the brightness for the glow */
+    filter: brightness(150%); 
   }
 
   #information-box {
     position: fixed;
-    top: 10%; /* Adjust as needed */
-    right: 1%; /* Position towards the right, but not far right */
-    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-    width: 40%; /* Adjust the width to the desired size */
-    height: auto; /* Maintain the aspect ratio */
-    z-index: 19; /* Above the previous full-page image overlay */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    top: 10%; 
+    right: 1%; 
+    bottom: 30px; 
+    width: 40%; 
+    height: auto; 
+    z-index: 19; 
+    object-fit: cover;
   }
 
   #info-text-container {
     position: fixed;
-    top: 17%; /* Adjust based on the position of your information box image */
-    right: 6%; /* Adjust based on the position of your information box image */
-    width: 30%; /* Adjust to match the width of your information box image */
-    height: 47%; /* Adjust height to match the content area of the skewed image */
-    transform: skew(-20deg); /* Skew the text container to match the box */
-    overflow: hidden; /* Ensures no content spills out */
-    z-index: 20; /* Higher than the image to overlay the text */
+    top: 17%; 
+    right: 6%; 
+    width: 30%; 
+    height: 47%; 
+    transform: skew(-20deg); 
+    overflow: hidden; 
+    z-index: 20; 
   }
   
   #info-text-content {
-    transform: skew(-1deg); /* Counter-skew the text to align it parallel to the box edges */
+    transform: skew(-1deg); 
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    color: #000; /* Text color */
-    background: transparent; /* Ensure background is transparent */
-    overflow-y: hidden; /* Enable scrolling */
-    height: 100%; /* Full height to use the whole container */
-    font-size: 30px; /* Increase font size */
-    font-family: 'BoldFont', sans-serif; /* Custom font, fallback to sans-serif */
-    -webkit-text-stroke: 0.05px rgb(150, 0, 0); /* Thin red outline for Webkit browsers */
-    text-stroke: 0.05px rgb(150, 0, 0); /* Thin red outline for other browsers if supported */
+    color: #000; 
+    background: transparent; 
+    overflow-y: hidden; 
+    height: 100%; 
+    font-size: 30px; 
+    font-family: 'BoldFont', sans-serif; 
+    -webkit-text-stroke: 0.05px rgb(150, 0, 0); 
+    text-stroke: 0.05px rgb(150, 0, 0); 
   }
   
   @supports (text-stroke: 0.5px rgb(150, 0, 0)) {
     #info-text-content {
-      text-stroke: 0.5px rgb(150, 0, 0); /* For browsers that support text-stroke */
+      text-stroke: 0.5px rgb(150, 0, 0); 
     }
   }
   
-  /* For browsers that do not support text-stroke, use text-shadow for a similar effect */
   @supports not (text-stroke: 0.5px rgb(150, 0, 0)) {
     #info-text-content {
       text-shadow:
         -1px -1px 0 rgb(150, 0, 0),  
         1px -1px 0 rgb(150, 0, 0),
         -1px 1px 0 rgb(150, 0, 0),
-        1px 1px 0 rgb(150, 0, 0); /* Red text shadow to create an outline effect */
+        1px 1px 0 rgb(150, 0, 0); 
     }
   }
 
 
   #info-text-scrollbar {
     position: absolute;
-    top: 17%; /* Align vertically */
-    right: 9.5%; /* Place it beside the container */
-    height: 48%; /* Match the height of the text container */
-    width: 20px; /* Width of the scrollbar */
-    background: black; /* Background color of the track */
-    transform: rotate(22deg); /* Rotate the entire scrollbar to match the skew */
-    transform-origin: bottom right; /* Pivot from the bottom right */
-    z-index: 30; /* Ensure it appears above other content */
+    top: 17%;
+    right: 9.5%; 
+    height: 48%; 
+    width: 20px; 
+    background: black;
+    transform: rotate(22deg); 
+    transform-origin: bottom right; 
+    z-index: 30; 
   }
   
   #info-text-thumb {
     position: absolute;
     top: 0;
-    width: 100%; /* Full width of the scrollbar */
-    height: 50px; /* Starting height of the thumb */
-    background-color: red; /* Color of the thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-    border: 2px solid black; /* Border to enhance visibility */
-    cursor: pointer; /* Cursor change to indicate draggable area */
-    transform: rotate(-10deg); /* Counter-rotate the thumb to appear straight */
-    transform-origin: bottom right; /* Ensure the thumb aligns correctly within the skewed track */
+    width: 100%;
+    height: 50px; 
+    background-color: red; 
+    border-radius: 10px;
+    border: 2px solid black; 
+    cursor: pointer; 
+    transform: rotate(-10deg); 
+    transform-origin: bottom right; 
   }
   
   
   #info-text-thumb:hover {
-    background-color: #b30000; /* Darker shade on hover */
+    background-color: #b30000; 
   }
   
 
-  /* Styling the scrollbar for WebKit browsers */
   #info-text-content::-webkit-scrollbar {
-    width: 10px; /* Scrollbar width */
-    transform: rotate(20deg); /* Match the scrollbar to the skew of the container */
+    width: 10px; 
+    transform: rotate(20deg); 
   }
   
   #info-text-content::-webkit-scrollbar-track {
-    background: black; /* Track color */
+    background: black; 
   }
   
   #info-text-content::-webkit-scrollbar-thumb {
-    background: red; /* Thumb color */
-    border-radius: 5px; /* Thumb roundness */
-    border: 2px solid black; /* Add border to thumb for better visibility */
+    background: red; 
+    border-radius: 5px; 
+    border: 2px solid black; 
   }
   
   #info-text-content::-webkit-scrollbar-thumb:hover {
-    background: #b30000; /* Thumb hover color */
+    background: #b30000; 
   }
   
   #back-to-home {
     position: fixed;
-    top: 10px; /* Adjust as needed */
-    left: 10px; /* Adjust as needed */
-    padding: 10px 20px; /* Padding for a better click area */
-    background-color: #2196F3; /* Blue background */
-    color: white; /* White text */
-    text-decoration: none; /* Remove underline from link */
-    font-size: 16px; /* Font size */
+    top: 10px;
+    left: 10px; 
+    padding: 10px 20px; 
+    background-color: #2196F3; 
+    color: white; 
+    text-decoration: none; 
+    font-size: 16px; 
     font-family: BoldFont;
-    border-radius: 50px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-    z-index: 1000; /* Ensure it's above other content */
+    border-radius: 50px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s;
+    z-index: 1000; 
   }
   
   #back-to-home:hover {
-    background-color: #1976D2; /* Darker blue on hover for visual feedback */
+    background-color: #1976D2; 
   }
   
-/* Base styles remain unchanged, except for adding responsive scaling */
 
-/* Responsive adjustments for tablet screens */
 @media (max-width: 1024px) and (min-width: 768px) {
     #info-text-container {
-      width: 35%; /* Adjust the width based on viewport size */
-      height: 40%; /* Adjust the height to maintain proportionality */
-      top: 15%; /* Slightly higher to center vertically */
-      right: 3%; /* Adjust right alignment */
+      width: 35%;
+      height: 40%; 
+      top: 15%; 
+      right: 3%; 
     }
   
     #info-text-content {
-      font-size: 26px; /* Larger font size for tablet readability */
+      font-size: 26px; 
     }
   
     #info-text-scrollbar {
-      top: 15%; /* Align with the adjusted container */
-      right: 8.5%; /* Position it close to the resized container */
-      height: 40%; /* Adjust height to match the container */
+      top: 15%;
+      right: 8.5%; 
+      height: 40%; 
     }
   }
   
-  /* Responsive adjustments for laptop screens */
+
   @media (max-width: 1200px) {
     #info-text-container {
-      width: 28%; /* Smaller width for smaller laptop screens */
-      height: 45%; /* Slightly taller container for aspect ratio */
-      top: 20%; /* Lower positioning for visibility */
-      right: 5%; /* More to the right */
+      width: 28%; 
+      height: 45%; 
+      top: 20%;
+      right: 5%;
     }
   
     #info-text-content {
-      font-size: 24px; /* Adjusted font size for clarity */
+      font-size: 24px; 
     }
   
     #info-text-scrollbar {
-      top: 20%; /* Adjust scrollbar position to match the container */
-      right: 10.5%; /* Place it appropriately beside the container */
-      height: 45%; /* Match container height */
+      top: 20%; 
+      right: 10.5%; 
+      height: 45%; 
     }
   }
   
-  /* Ensure all elements scale and position correctly */
   #info-text-container, #info-text-scrollbar, #info-text-content {
-    transition: width 0.3s, height 0.3s, top 0.3s, right 0.3s, font-size 0.3s; /* Smooth transition for resizing */
+    transition: width 0.3s, height 0.3s, top 0.3s, right 0.3s, font-size 0.3s; 
   }
   
-  
-  
-  /* Mobile screens (devices with widths less than 768px) */
+
   @media (max-width: 767px) {
     #info-text-container {
-      top: 25%; /* Center more in the vertical space */
-      right: 5%; /* Adjust horizontal positioning */
-      width: 90%; /* Use more of the screen width */
-      height: 60%; /* Increase height to accommodate more text */
-      transform: none; /* Remove skewing for better readability */
+      top: 25%; 
+      right: 5%; 
+      width: 90%;
+      height: 60%; 
+      transform: none; 
     }
   
     #info-text-content {
-      transform: none; /* Text should not be skewed on small screens */
-      font-size: 20px; /* Larger font size for readability */
-      padding: 20px; /* Increase padding to keep text well within the bounds of the box */
+      transform: none; 
+      font-size: 20px; 
+      padding: 20px;
     }
   
     #info-text-scrollbar {
       top: 25%;
-      right: 3%; /* Adjust scrollbar position to fit the new container size */
+      right: 3%; 
       height: 60%;
-      transform: rotate(0deg); /* No rotation for easier interaction */
+      transform: rotate(0deg); 
     }
   
     #info-text-thumb {
-      transform: rotate(0deg); /* Keep the thumb vertical for usability */
+      transform: rotate(0deg); 
     }
 
     #information-box, #page-wide-overlay, #full-page-decorative-top, #Avatar-Information, #Cool-Blue-Thingy {
-      width: 100vw; /* Full viewport width */
-      height: auto; /* Adjust height automatically */
-      position: relative; /* Adjust positioning for mobile */
-      top: 0; /* Align to top */
-      left: 0; /* Align to left */
-      right: 0; /* Align to right */
-      bottom: 0; /* Align to bottom */
-      object-fit: contain; /* Ensure contents fit without being cut off */
+      width: 100vw; 
+      height: auto; 
+      position: relative;
+      top: 0; 
+      left: 0;
+      right: 0; 
+      bottom: 0; 
+      object-fit: contain;
     }
   }

@@ -1,84 +1,442 @@
 #page-wide-overlay {
     position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 0; /* Align to the left side of the viewport */
-    right: 0; /* Align to the right side of the viewport */
-    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-    width: 100vw; /* Make it as wide as the full viewport */
-    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
-    z-index: 16; /* Above the other overlays */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 30px; 
+    width: 100vw; 
+    height: calc(100vh - 1px); 
+    z-index: 16; 
+    object-fit: cover; 
   }
 
   #select-overlay {
     position: fixed;
-    right: 10px;  /* Add some margin if you want */
-    bottom: 10px; /* Add some margin if you want */
-    width: 300px; /* Set the width to the size you desire */
-    z-index: 20; /* Adjust if necessary based on other page elements */
+    right: 10px;  
+    bottom: 10px; 
+    width: 300px; 
+    z-index: 20;
   }
 
   #Avatar-Information {
     position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 0; /* Align to the left side of the viewport */
-    right: 0; /* Align to the right side of the viewport */
-    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-    width: 100vw; /* Make it as wide as the full viewport */
-    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
-    z-index: 19; /* Above the previous full-page image overlay */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 30px; 
+    width: 100vw; 
+    height: calc(100vh - 1px); 
+    z-index: 19; 
+    object-fit: cover; 
   }
 
   #purple-thing-overlay {
     position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 0; /* Align to the left side of the viewport */
-    right: 0; /* Align to the right side of the viewport */
-    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-    width: 100vw; /* Make it as wide as the full viewport */
-    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
-    z-index: 16; /* Above the other overlays */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 30px; 
+    width: 100vw; 
+    height: calc(100vh - 1px); 
+    z-index: 16; 
+    object-fit: cover; 
   }
 
   #titletemplate{
     position: fixed;
-    top: 13%; /* Adjust as needed */
-    right: 45%; /* Position towards the right, but not far right */
-    width: 22%; /* Adjust the width to the desired size */
-    height: auto; /* Maintain the aspect ratio */
-    z-index: 19; /* Above the previous full-page image overlay */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
-    transform: rotate(-0.5deg); /* Angle the HOME link upwards */
+    top: 10%; 
+    right: 45%; 
+    width: 22%; 
+    height: auto; 
+    z-index: 19; 
+    object-fit: cover; 
+    transform: rotate(-0.5deg); 
 
   }
 
   #plus{
     position: fixed;
-    top: 6%; /* Adjust as needed */
-    right: 67%; /* Position towards the right, but not far right */
-    width: 4%; /* Adjust the width to the desired size */
-    height: auto; /* Maintain the aspect ratio */
-    z-index: 19; /* Above the previous full-page image overlay */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
-    transform: rotate(-0.5deg); /* Angle the HOME link upwards */
+    top: 2%; 
+    right: 67%; 
+    width: 4%; 
+    height: auto; 
+    z-index: 19; 
+    object-fit: cover; 
+    transform: rotate(-0.5deg); 
 
   }
 
-  #skillstemplate{
+  #skillstemplate {
     position: fixed;
-    top: 20%; /* Adjust as needed */
-    right: 58%; /* Position towards the right, but not far right */
-    width: 10%; /* Adjust the width to the desired size */
-    height: auto; /* Maintain the aspect ratio */
-    z-index: 19; /* Above the previous full-page image overlay */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
-
+    top: 17%;
+    right: 58%;
+    width: 10%;
+    height: auto;
+    z-index: 19;
+    object-fit: cover;
+    transition: transform 0.5s ease;
   }
 
-  #skillstemplate:hover{
+  
+  .skill-item {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  .skill-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .skill-text {
+    position: absolute;
+    top: 50%; 
+    left: 110%; 
+    transform: translateY(-50%); 
+    white-space: nowrap; 
+    visibility: hidden; 
+    opacity: 0;
+    transition: visibility 0s linear 0.5s, opacity 0.5s linear; 
+    font-family: BoldFont;
+    font-size: 30px;
+}
+  
+  #skillstemplate:hover {
+    transform: translateX(-10%);
+  }
+  
+  #skillstemplate:hover .skill-text {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0s;
+  }
+  
+
+  #skillstemplate2 {
     position: fixed;
-    right: 70%;
+    top: 23%;
+    right: 58.5%;
+    width: 10%;
+    height: auto;
+    z-index: 19;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  #skillstemplate2:hover {
+    transform: translateX(-10%);
+  }
+  
+  #skillstemplate2:hover .skill-text {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0s;
+  }
+  
+  #skillstemplate3 {
+    position: fixed;
+    top: 29%;
+    right: 59%;
+    width: 10%;
+    height: auto;
+    z-index: 19;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  #skillstemplate3:hover {
+    transform: translateX(-10%);
+  }
+  
+  #skillstemplate3:hover .skill-text {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0s;
+  }
+  
+  #skillstemplate4 {
+    position: fixed;
+    top: 35%;
+    right: 59.5%;
+    width: 10%;
+    height: auto;
+    z-index: 19;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  #skillstemplate4:hover {
+    transform: translateX(-10%);
+  }
+  
+  #skillstemplate4:hover .skill-text {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0s;
+  }
+
+  #skillstemplate5 {
+    position: fixed;
+    top: 41%;
+    right: 60%;
+    width: 10%;
+    height: auto;
+    z-index: 19;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  #skillstemplate5:hover {
+    transform: translateX(-10%);
+  }
+  
+  #skillstemplate5:hover .skill-text {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0s;
+  }
+
+  #titletemplate2{
+    position: fixed;
+    top: 48.5%; 
+    right: 48%; 
+    width: 22%;
+    height: auto; 
+    z-index: 19; 
+    object-fit: cover; 
+    transform: rotate(-0.5deg); 
 
   }
+
+  #skillstemplate6 {
+    position: fixed;
+    top: 55.5%;
+    right: 61%;
+    width: 10%;
+    height: auto;
+    z-index: 19;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  #skillstemplate6:hover {
+    transform: translateX(-10%);
+  }
+  
+  #skillstemplate6:hover .skill-text {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0s;
+  }
+
+
+  #skillstemplate7 {
+    position: fixed;
+    top: 61.5%;
+    right: 61.5%;
+    width: 10%;
+    height: auto;
+    z-index: 19;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  #skillstemplate7 .skill-text{
+    font-size: 26px;
+  }
+
+  #skillstemplate7:hover {
+    transform: translateX(-10%);
+  }
+  
+  #skillstemplate7:hover .skill-text {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0s;
+    font-size: 26px;
+  }
+
+  #titletemplate3{
+    position: fixed;
+    top: 69%; 
+    right: 51%; 
+    width: 22%; 
+    height: auto;
+    z-index: 19; 
+    object-fit: cover; 
+    transform: rotate(-0.5deg); 
+
+  }
+
+  #skillstemplate8 {
+    position: fixed;
+    top: 76%;
+    right: 63%;
+    width: 10%;
+    height: auto;
+    z-index: 19;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+
+  #skillstemplate8:hover {
+    transform: translateX(-10%);
+  }
+  
+  #skillstemplate8:hover .skill-text {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0s;
+  }
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 100; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 50px;
+}
+
+.modal-content {
+  background-color: #dedede;
+  margin: 0.3% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; 
+  height: 90%; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+#resumeFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#back-to-home {
+  position: fixed;
+  top: 10px;
+  left: 10px; 
+  padding: 10px 20px; 
+  background-color: #2196F3; 
+  color: white; 
+  text-decoration: none; 
+  font-size: 16px; 
+  font-family: BoldFont;
+  border-radius: 50px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+  transition: background-color 0.3s;
+  z-index: 1000; 
+}
+
+#back-to-home:hover {
+  background-color: #1976D2; 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  #titletemplate, #titletemplate2, #titletemplate3 {
+    width: 25%;
+  }
+  .skill-item {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 1224px) {
+  #titletemplate, #titletemplate2, #titletemplate3 {
+    width: 18%;
+  }
+  .skill-item {
+    width: 18%;
+  }
+}
+
+@media only screen and (min-width: 1824px) {
+  #titletemplate, #titletemplate2, #titletemplate3 {
+    width: 15%;
+  }
+  .skill-item {
+    width: 15%;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  #titletemplate, #titletemplate2, #titletemplate3 {
+    width: 40%;
+    top: 15%;
+  }
+  .skill-item {
+    width: 40%;
+  }
+  .skill-text {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+  #titletemplate, #titletemplate2, #titletemplate3 {
+    width: 35%;
+    top: 20%;
+  }
+  .skill-item {
+    width: 35%;
+  }
+  .skill-text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  #titletemplate, #titletemplate2, #titletemplate3 {
+    width: 50%;
+    top: 10%;
+  }
+  .skill-item {
+    width: 50%;
+  }
+  .skill-text {
+    font-size: 14px;
+  }
+  .modal-content {
+    width: 90%;
+  }
+}

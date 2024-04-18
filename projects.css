@@ -1,143 +1,141 @@
 #page-wide-overlay {
     position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 0; /* Align to the left side of the viewport */
-    right: 0; /* Align to the right side of the viewport */
-    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-    width: 100vw; /* Make it as wide as the full viewport */
-    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
-    z-index: 16; /* Above the other overlays */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 30px; 
+    width: 100vw; 
+    height: calc(100vh - 1px); 
+    z-index: 16; 
+    object-fit: cover; 
   }
 
   #purple-thing-overlay {
     position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 0; /* Align to the left side of the viewport */
-    right: 0; /* Align to the right side of the viewport */
-    bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-    width: 100vw; /* Make it as wide as the full viewport */
-    height: calc(100vh - 1px); /* Adjust height considering the bottom space */
-    z-index: 16; /* Above the other overlays */
-    object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 30px; 
+    width: 100vw; 
+    height: calc(100vh - 1px); 
+    z-index: 16; 
+    object-fit: cover; 
   }
 
   #list-text{
       position: fixed;
-      top: 13%; /* Adjust as needed */
-      right: 84%; /* Position towards the right, but not far right */
-      bottom: 30px; /* Give some space at the bottom to account for the taskbar */
-      width: 12%; /* Adjust the width to the desired size */
-      height: auto; /* Maintain the aspect ratio */
-      z-index: 19; /* Above the previous full-page image overlay */
-      object-fit: cover; /* Cover the available space without distorting the aspect ratio */
+      top: 13%; 
+      right: 84%; 
+      bottom: 30px; 
+      width: 12%; 
+      height: auto; 
+      z-index: 19;
+      object-fit: cover; 
     }
 
 
     #projects-container {
-      width: 30%; /* Adjust as needed for your layout */
-      height: 900px; /* Fixed height for the scrolling area */
-      overflow-y: auto; /* Enable vertical scrolling */
+      width: 30%;
+      height: 900px; 
+      overflow-y: auto; 
       overflow-x: hidden;
-      z-index: 20; /* Adjust as needed */
-      transform: skew(20deg); /* Skew the container to match your design */
-      position: fixed; /* Changed from relative to fixed */
-      top: 23%; /* Adjust this value as needed to position it right below the LIST text */
-      right: 60%; /* Adjust this value as needed to align with the right edge of LIST text */
+      z-index: 20; 
+      transform: skew(20deg); 
+      position: fixed; 
+      top: 23%;
+      right: 60%; 
       padding-left: 30px;
       padding-right: 30px;
       margin-bottom: 20px;
   }
   
   .project-item {
-      width: 100%; /* Use the full width of the container */
-      margin: 0 0 20px 0; /* Space between items, adjust as needed */
-      display: block; /* Images are inline by default, this makes them block level */
-      transform: skew(-20deg); /* Un-skew each item to appear normal inside the skewed container */
+      width: 100%; 
+      margin: 0 0 20px 0; 
+      display: block; 
+      transform: skew(-20deg); 
   }
   
-  /* Custom scrollbar styles */
   #projects-container::-webkit-scrollbar {
       width: 20px;
   }
   
   #projects-container::-webkit-scrollbar-track {
-      background: #f1f1f1; /* Light gray track */
+      background: #f1f1f1; 
       border-radius: 10px;
   }
   
   #projects-container::-webkit-scrollbar-thumb {
-      background: #888; /* Darker gray thumb */
+      background: #888; 
       border-radius: 10px;
   }
   
   #projects-container::-webkit-scrollbar-thumb:hover {
-      background: #555; /* Even darker gray on hover */
+      background: #555;
   }
 
   #select-overlay {
     position: fixed;
-    right: 10px;  /* Add some margin if you want */
-    bottom: 10px; /* Add some margin if you want */
-    width: 400px; /* Set the width to the size you desire */
-    z-index: 10; /* Adjust if necessary based on other page elements */
+    right: 10px;  
+    bottom: 10px; 
+    width: 400px; 
+    z-index: 10; 
   }
 
   #back-to-home {
     position: fixed;
-    top: 10px; /* Adjust as needed */
-    left: 10px; /* Adjust as needed */
-    padding: 10px 20px; /* Padding for a better click area */
-    background-color: #2196F3; /* Blue background */
-    color: white; /* White text */
-    text-decoration: none; /* Remove underline from link */
-    font-size: 16px; /* Font size */
+    top: 10px; 
+    left: 10px; 
+    padding: 10px 20px; 
+    background-color: #2196F3;
+    color: white; 
+    text-decoration: none; 
+    font-size: 16px; 
     font-family: BoldFont;
-    border-radius: 50px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-    z-index: 1000; /* Ensure it's above other content */
+    border-radius: 50px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s; 
+    z-index: 1000; 
   }
   
   #back-to-home:hover {
-    background-color: #1976D2; /* Darker blue on hover for visual feedback */
+    background-color: #1976D2; 
   }
 
   @media (max-width: 1024px) {
     #list-text {
-      top: 10%; /* Adjust as needed for tablets */
-      right: 70%; /* Adjust as needed for tablets */
+      top: 10%;
+      right: 70%;
     }
   
     #projects-container {
-      width: 50%; /* Increase width for tablets */
-      right: 50%; /* Center it more for tablets */
-      top: 25%; /* Adjust as needed for tablets */
+      width: 50%;
+      right: 50%; 
+      top: 25%; 
     }
   
     .project-item {
-      height: 100px; /* Adjust the size for tablets */
+      height: 100px; 
     }
   }
   
-  /* Mobile screens */
   @media (max-width: 767px) {
     #list-text {
-      top: 8%; /* Adjust as needed for mobiles */
-      right: 50%; /* Adjust as needed for mobiles */
-      width: 40%; /* Increase size for mobiles */
+      top: 8%; 
+      right: 50%;
+      width: 40%; 
     }
   
     #projects-container {
-      width: 80%; /* Increase width for mobiles */
-      right: 10%; /* Center it more for mobiles */
-      top: 20%; /* Adjust as needed for mobiles */
-      height: 80vh; /* Use vh for responsive height on mobiles */
-      transform: none; /* Remove skew for better readability on mobiles */
+      width: 80%; 
+      right: 10%; 
+      top: 20%; 
+      height: 80vh; 
+      transform: none; 
     }
   
     .project-item {
-      transform: none; /* Remove skew for items on mobiles */
+      transform: none; 
     }
   }
   

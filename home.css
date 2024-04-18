@@ -4,51 +4,43 @@ body, html {
   padding: 0;
   overflow: hidden;
   height: 100%;
-  background: #203363; /* Lighter blue background */
-}
-
-#bottom-right-image {
-  position: fixed;
-  right: 10px;  /* Add some margin if you want */
-  bottom: 10px; /* Add some margin if you want */
-  width: 250px; /* Set the width to the size you desire */
-  z-index: 10; /* Adjust if necessary based on other page elements */
+  background: #203363; 
 }
 
 #left-overlay-image {
   position: fixed;
   left: 0;
   top: 0;
-  height: 100%; /* Full height of the viewport */
-  z-index: 15; /* Ensure it's above everything else */
-  pointer-events: none; /* Allows click events to pass through to elements underneath */
+  height: 100%; 
+  z-index: 15;
+  pointer-events: none; 
 }
 
 #foam {
-  max-height: 50%; /* Control the size as needed */
+  max-height: 50%;
   object-fit: cover;
   width: 100%;
   height: auto;
 }
 
 #gradient-overlay {
-  position: fixed; /* Use fixed to cover the entire viewport */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Set to 100% to cover the full height of the viewport */
-  z-index: 9; /* Below the menu links but above the background */
+  height: 100%; 
+  z-index: 9; 
 }
 
 #full-page-image {
   position: fixed;
-  top: -2%; /* Slightly increase the offset to move more of the image offscreen */
-  left: -3%; /* Keep aligned to the left side of the viewport */
-  width: 48vw; /* Increase the width to make the image larger */
-  height: 105vh; /* Increase the height to ensure the top part is offscreen */
-  z-index: 9; /* Maintain layering order */
-  pointer-events: none; /* Ensure interactions pass through */
-  object-fit: cover; /* Maintain aspect ratio while covering the area */
+  top: -2%;
+  left: -3%; 
+  width: 48vw; 
+  height: 105vh; 
+  z-index: 9; 
+  pointer-events: none; 
+  object-fit: cover; 
 }
 
 
@@ -62,32 +54,32 @@ body, html {
 
 #menu {
   position: fixed;
-  top: 55%; /* Adjusted to center the menu vertically */
-  left: 55%; /* Adjusted to center the menu horizontally */
-  transform: translate(-50%, -50%); /* Center the menu */
-  z-index: 10; /* Above the gradient overlay */
+  top: 55%; 
+  left: 55%; 
+  transform: translate(-50%, -50%); 
+  z-index: 10; 
 }
 
 .menu-link {
-  position: relative; /* Allows absolute positioning inside */
-  display: block; /* Block to take the width of its content */
-  margin: 20px; /* Space out the links */
-  cursor: pointer; /* Change mouse cursor on hover */
-  transform-origin: left center; /* The transformations pivot around the center left of the link */
+  position: relative;
+  display: block; 
+  margin: 20px;
+  cursor: pointer; 
+  transform-origin: left center; 
 }
 
 
 .menu-link img {
   display: block;
-  max-width: 55%; /* Increase the max-width to make the SVGs larger */
-  height: auto; /* Maintain aspect ratio */
-  transition: transform 0.3s ease; /* Smooth transform transition */
-  transform-origin: center; /* Ensure transformations are centered */
+  max-width: 55%;
+  height: auto; 
+  transition: transform 0.3s ease; 
+  transform-origin: center; 
   padding: 0;
 }
 
 .menu-link span {
-  display: none; /* Ensures that the text does not take up space or affect layout */
+  display: none; 
 }
 
 
@@ -95,10 +87,10 @@ body, html {
   position: absolute;
   top: 40%;
   left: 0;
-  transform: translateY(-50%) scale(0); /* Start with the image scaled down to zero */
+  transform: translateY(-50%) scale(0); 
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s linear 0.3s, opacity 0.3s ease, transform 0.3s ease; /* Slower transition for more visibility */
+  transition: visibility 0s linear 0.3s, opacity 0.3s ease, transform 0.3s ease; 
   z-index: -1;
 }
 
@@ -109,26 +101,25 @@ body, html {
 .menu-link:hover .hover-background {
   visibility: visible;
   opacity: 1;
-  transform: translateY(-50%) scale(4); /* Increase the scale to make the image larger */
-  transition-delay: 0s; /* Apply the animation immediately on hover */
+  transform: translateY(-50%) scale(4); 
+  transition-delay: 0s;
 }
 
-/* Individual hover background transformations */
 #home-link .hover-background {
-  transform: translateY(-50%) rotate(0deg); /* Adjust the angle to match 'HOME' */
+  transform: translateY(-50%) rotate(0deg); 
 }
 
 #projects-link .hover-background {
-  transform: translateY(-50%) rotate(2deg); /* 'PROJECTS' might not need rotation */
+  transform: translateY(-50%) rotate(2deg); 
 }
 
 #skills-link .hover-background {
-  transform: translateY(-50%) rotate(0deg); /* Adjust the angle to match 'SKILLS' */
+  transform: translateY(-50%) rotate(0deg); 
 }
 
 
 #home-link {
-  transform: rotate(-50deg); /* Angle the HOME link upwards */
+  transform: rotate(-50deg); 
   animation: wave-animation-home 3s ease-in-out infinite;
 }
 
@@ -137,7 +128,7 @@ body, html {
 }
 
 #skills-link {
-  transform: rotate(50deg); /* Angle the SKILLS link downwards */
+  transform: rotate(50deg); 
   animation: wave-animation-skills 3s ease-in-out infinite;
 }
 
@@ -148,7 +139,7 @@ body, html {
   display: inline-block;
   width: 60px;
   height: 34px;
-  z-index: 9999;  /* Ensure it's above everything */
+  z-index: 9999; 
 }
 
 .switch input { 
@@ -232,7 +223,7 @@ input:checked + .slider:before {
 
 #startAudio {
   position: fixed;
-  top: 55px;  /* Positioned below the switch */
+  top: 55px;  
   right: 10px;
   width: 100px;
   height: 34px;
@@ -244,8 +235,8 @@ input:checked + .slider:before {
   font-size: 14px;
   text-align: center;
   line-height: 34px;
-  user-select: none; /* Prevent text selection */
-  z-index: 9998; /* Ensure it is just below the toggle switch */
+  user-select: none; 
+  z-index: 9998; 
 }
 
 #startAudio:hover {
@@ -259,9 +250,9 @@ input:checked + .slider:before {
   left: 50%;
   transform: translateX(-50%);
   color: #FFFFFF;
-  text-shadow: 0px 0px 8px rgba(0,0,0,0.7); /* Enhance visibility */
+  text-shadow: 0px 0px 8px rgba(0,0,0,0.7);
   font-size: 18px;
-  z-index: 20; /* Ensure it is visible above other elements */
+  z-index: 20; 
   font-family: BoldFont;
 }
 
@@ -269,9 +260,9 @@ input:checked + .slider:before {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%; /* Full width of the viewport */
-  height: 50vh; /* Set to full height of the viewport */
-  z-index: 1; /* Ensure it is below most content but above the background */
+  width: 100%;
+  height: 50vh; 
+  z-index: 1; 
 }
 
 
@@ -280,7 +271,7 @@ input:checked + .slider:before {
   src: url('./Media/Font/boldfont.ttf');
 }
   
-  /* Example of a keyframe animation for a simple wave effect */
+
   @keyframes wave-animation {
     0%, 100% { transform: translateY(-10px); }
     50% { transform: translateY(10px); }
@@ -299,7 +290,7 @@ input:checked + .slider:before {
     }
   }
   
-  /* Define keyframes for SKILLS link with rotation and wave animation */
+
   @keyframes wave-animation-skills {
     0%, 100% {
       transform: translateY(-10px) rotate(14deg);
@@ -315,67 +306,65 @@ input:checked + .slider:before {
   
   }
 
-/* Add your existing CSS above this line */
 
-/* Add your existing CSS above this line */
 
 @media (max-width: 1024px) {
-  /* This applies to tablets and smaller laptops */
+
   #full-page-image, #left-overlay-image {
-    width: 100vw; /* Take full width of the viewport */
-    height: auto; /* Adjust height automatically */
+    width: 100vw; 
+    height: auto; 
   }
 
   #menu {
-    left: 50%; /* Center the menu horizontally */
-    top: 50%; /* Center the menu vertically */
+    left: 50%; 
+    top: 50%; 
     transform: translate(-50%, -50%);
-    font-size: 4vw; /* Adjust font size based on viewport width */
-  }
+    font-size: 4vw; 
 
   .menu-link img {
-    max-width: 15vw; /* Use viewport width to determine max size */
-    min-width: 120px; /* Set a minimum width to prevent SVGs from becoming too small */
+    max-width: 15vw; 
+    min-width: 120px;
   }
 
   .hover-background {
-    width: 20vw; /* Scale hover background based on viewport width */
-    min-width: 150px; /* Minimum size to keep it visible */
+    width: 20vw; 
+    min-width: 150px; 
   }
 }
 
 @media (max-width: 480px) {
-  /* This applies to mobile phones */
+
   #full-page-image, #left-overlay-image {
     position: fixed;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 100vw; 
+    height: 100vh; 
     top: 0;
     left: 0;
-    object-fit: cover; /* Cover the entire viewport */
+    object-fit: cover; 
   }
 
   #menu {
-    width: 100%; /* Full viewport width */
-    left: 0; /* Align to the left edge */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Center transform vertically */
-    text-align: center; /* Center the text */
-    font-size: 8vw; /* Font size based on viewport width */
+    width: 100%; 
+    left: 0; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    text-align: center; 
+    font-size: 8vw; 
   }
 
   .menu-link img {
-    width: 30vw; /* Adjust image size based on viewport width */
-    min-width: 100px; /* Minimum width for the SVGs */
-    margin: 0 auto; /* Center the images */
+    width: 30vw; 
+    min-width: 100px;
+    margin: 0 auto; 
   }
 
   .menu-link {
-    margin: 5vw 0; /* Vertical spacing based on viewport width */
-    display: block; /* Stack the links */
+    margin: 5vw 0; 
+    display: block; 
   }
 
   .hover-background {
-    display: none; /* Hide the hover effect on mobile */
+    display: none; 
   }
+}
 }

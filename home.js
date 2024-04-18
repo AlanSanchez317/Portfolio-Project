@@ -1,38 +1,38 @@
 $(document).ready(function() {
-  // Apply the ripples effect to the body of the page
+  
   $('body').ripples({
       resolution: 512,
-      dropRadius: 20, // size of the ripple
+      dropRadius: 20, 
       perturbance: 0.04,
-      // You can also specify imageUrl to use an image as the background of the ripples
+      
   });
 
   
-  // You can still add other JavaScript code here
+  
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Animate the full-page image to move up and down
+  
   gsap.to("#full-page-image", {
-    y: '1.9%', // Adjust the vertical movement extent
-    duration: 4, // Duration of the animation in seconds
-    yoyo: true, // Makes the animation go back and forth
-    repeat: -1, // Makes the animation repeat indefinitely
-    ease: "sine.inOut" // Smooth easing function for a more natural effect
+    y: '1.9%', 
+    duration: 4, 
+    yoyo: true, 
+    repeat: -1, 
+    ease: "sine.inOut" 
   });
 });
 
-gsap.registerPlugin(); // We don't need any specific plugins for this effect.
+gsap.registerPlugin(); 
 
 function waveAnimation() {
-  const tl = gsap.timeline({repeat: -1, yoyo: true}); // Create a timeline that loops back and forth indefinitely.
+  const tl = gsap.timeline({repeat: -1, yoyo: true}); 
   
   tl.to("#foam", {
     duration: 4,
     ease: "sine.inOut",
-    scale: 1.05, // Slightly increase the scale to give a 'breathing' effect.
-    skewX: 5, // Skew the image to simulate the wave motion.
-    transformOrigin: "center bottom" // Keeps the bottom part anchored while the top moves.
+    scale: 1.05, 
+    skewX: 5, 
+    transformOrigin: "center bottom" 
   });
 
   return tl;
@@ -70,10 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function resizeCanvas() {
     canvas.width = window.innerWidth;
-    canvas.height = canvas.offsetHeight;  // Use offsetHeight to match the actual element size
+    canvas.height = canvas.offsetHeight;  
   }
   
-  // Call resizeCanvas on load and window resize
+  
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
   
@@ -81,16 +81,16 @@ document.addEventListener('DOMContentLoaded', function() {
     requestAnimationFrame(draw);
     analyser.getByteFrequencyData(dataArray);
   
-    canvasCtx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous frame
+    canvasCtx.clearRect(0, 0, canvas.width, canvas.height); 
   
     var barWidth = (canvas.width / bufferLength) * 2.5;
     var barHeight;
     var x = 0;
   
     for(var i = 0; i < bufferLength; i++) {
-      barHeight = dataArray[i] * 3; // Increased height of bars
+      barHeight = dataArray[i] * 3; 
   
-      canvasCtx.fillStyle = 'rgb(50, 50, ' + (barHeight + 100) + ')'; // Make the bars blue
+      canvasCtx.fillStyle = 'rgb(50, 50, ' + (barHeight + 100) + ')'; 
       canvasCtx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
   
       x += barWidth + 1;
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Start the first song
+  
   playSong(currentSongIndex);
 });
 
