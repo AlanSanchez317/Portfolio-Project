@@ -78,7 +78,7 @@
     top: 17%; 
     right: 6%; 
     width: 30%; 
-    height: 47%; 
+    height: 43%; 
     transform: skew(-20deg); 
     overflow: hidden; 
     z-index: 20; 
@@ -185,19 +185,52 @@
   #back-to-home:hover {
     background-color: #1976D2; 
   }
+  @media (min-width: 1025px) and (max-width: 1366px) {
+    #info-text-container {
+      top: 15%;
+      height: 530px;
+      right: 5%;
+    }
+  }
   
 
-@media (max-width: 1024px) and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1366px) {
+    #info-text-content {
+      padding-top: 2vw;
+      padding-bottom: 2vw;
+      font-size: calc(1.5vw + 1vh);
+    }
+    
+    #info-text-container {
+      top: calc(17% - 1vw);
+      height: calc(47% + 2vw);
+    }
+  }
+
+  @media (min-width: 1025px) and (max-width: 1366px) {
     #info-text-container {
       width: 35%;
-      height: 40%; 
-      top: 15%; 
-      right: 3%; 
+      height: 50%;
+      top: 15%;
+      right: 5%;
     }
   
     #info-text-content {
-      font-size: 26px; 
+      font-size: 28px;
     }
+  }
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  #info-text-container {
+    top: calc(15% - 1vw);
+    height: calc(530px - 1vw);
+    right: 4%;
+  }
+
+  #info-text-content {
+    font-size: calc(26px - 1vw);
+  }
+
   
     #info-text-scrollbar {
       top: 15%;
@@ -233,17 +266,13 @@
 
   @media (max-width: 767px) {
     #info-text-container {
-      top: 25%; 
-      right: 5%; 
-      width: 90%;
-      height: 60%; 
-      transform: none; 
+      top: calc(25% - 2vw);
+      height: calc(60% - 20px);
+      right: 5%;
     }
   
     #info-text-content {
-      transform: none; 
-      font-size: 20px; 
-      padding: 20px;
+      font-size: 18px;
     }
   
     #info-text-scrollbar {
@@ -268,3 +297,8 @@
       object-fit: contain;
     }
   }
+
+  #info-text-container, #info-text-scrollbar, #info-text-content {
+    transition: width 0.3s, height 0.3s, top 0.3s, right 0.3s, font-size 0.3s; 
+  }
+  
