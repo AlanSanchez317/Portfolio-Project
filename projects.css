@@ -101,7 +101,25 @@
   #back-to-home:hover {
     background-color: #1976D2; 
   }
-
+  #toggle-effects {
+    position: fixed;
+    top: 10px;
+    left: 90px; /* Adjusted position next to the back button */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'BoldFont', sans-serif;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    z-index: 1000;
+  }
+  
+  #toggle-effects:hover {
+    background-color: #388E3C;
+  }
   @media (max-width: 1024px) {
     #list-text {
       top: 10%;

@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var x = 0;
   
     for(var i = 0; i < bufferLength; i++) {
-      barHeight = dataArray[i] * 3; 
+      barHeight = dataArray[i]; 
   
       canvasCtx.fillStyle = 'rgb(50, 50, ' + (barHeight + 100) + ')'; 
       canvasCtx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
@@ -160,3 +160,33 @@ document.addEventListener('DOMContentLoaded', function() {
   playSong(currentSongIndex);
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleEffectsBtn = document.getElementById('toggle-effects-home');
+
+  if (localStorage.getItem('fancyEffects') === 'disabled') {
+    disableFancyEffects();
+  }
+
+  toggleEffectsBtn.addEventListener('click', () => {
+    if (document.body.classList.contains('fancy-effects-disabled')) {
+      enableFancyEffects();
+      localStorage.setItem('fancyEffects', 'enabled');
+    } else {
+      disableFancyEffects();
+      localStorage.setItem('fancyEffects', 'disabled');
+    }
+  });
+});
+
+function disableFancyEffects() {
+  document.body.classList.add('fancy-effects-disabled');
+  $('*').stop(true);
+  $('canvas').css('display', 'none');
+  gsap.globalTimeline.pause();
+}
+
+function enableFancyEffects() {
+  document.body.classList.remove('fancy-effects-disabled');
+  $('canvas').css('display', 'block');
+  gsap.globalTimeline.resume();
+}

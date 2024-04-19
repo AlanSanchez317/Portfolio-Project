@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let x = 0;
 
         for(let i = 0; i < dataArray.length; i++) {
-            barHeight = dataArray[i] * 2;
+            barHeight = dataArray[i];
             canvasCtx.fillStyle = `rgb(50, 50, ${barHeight + 100})`;
             canvasCtx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
             x += barWidth + 1;
@@ -164,4 +164,35 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('info-text-container').addEventListener('wheel', onScrollWheel);
 
   });
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleEffectsBtn = document.getElementById('toggle-effects');
+  
+    if (localStorage.getItem('fancyEffects') === 'disabled') {
+      disableFancyEffects();
+    }
+  
+    toggleEffectsBtn.addEventListener('click', () => {
+      if (document.body.classList.contains('fancy-effects-disabled')) {
+        enableFancyEffects();
+        localStorage.setItem('fancyEffects', 'enabled');
+      } else {
+        disableFancyEffects();
+        localStorage.setItem('fancyEffects', 'disabled');
+      }
+    });
+  });
+  
+  function disableFancyEffects() {
+    document.body.classList.add('fancy-effects-disabled');
+    $('*').stop(true);
+    $('canvas').css('display', 'none');
+    gsap.globalTimeline.pause();
+  }
+  
+  function enableFancyEffects() {
+    document.body.classList.remove('fancy-effects-disabled');
+    $('canvas').css('display', 'block');
+    gsap.globalTimeline.resume();
+  }
   
