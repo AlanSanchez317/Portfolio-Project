@@ -392,6 +392,103 @@
   background-color: #388E3C;
 }
 
+@media only screen and (max-width: 767px) {
+  #page-wide-overlay, #select-overlay, #Avatar-Information, #purple-thing-overlay, #plus {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: initial;
+    z-index: 5;
+    object-fit: cover;
+  }
+
+  #titletemplate, #titletemplate2, #titletemplate3 {
+    position: fixed;
+    top: 8%;
+    right: 50%;
+    width: 60%;
+    height: auto;
+    z-index: 6;
+    object-fit: contain;
+    transform: translateX(50%) rotate(-0.5deg);
+  }
+
+  .skill-item {
+    position: relative;
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    z-index: 7;
+  }
+
+  .skill-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .skill-text {
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateY(10px);
+    width: 100%;
+    height: auto;
+    white-space: normal;
+    font-size: 14px;
+  }
+
+  #skillstemplate:hover, #skillstemplate2:hover, #skillstemplate3:hover,
+  #skillstemplate4:hover, #skillstemplate5:hover, #skillstemplate6:hover,
+  #skillstemplate7:hover, #skillstemplate8:hover {
+    transform: none;
+  }
+
+  #skillstemplate:hover .skill-text, #skillstemplate2:hover .skill-text,
+  #skillstemplate3:hover .skill-text, #skillstemplate4:hover .skill-text,
+  #skillstemplate5:hover .skill-text, #skillstemplate6:hover .skill-text,
+  #skillstemplate7:hover .skill-text, #skillstemplate8:hover .skill-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .modal {
+    padding-top: 60px;
+  }
+
+  .modal-content {
+    width: 90%;
+    height: auto;
+    margin: 5% auto;
+    animation-name: none;
+  }
+
+  .close {
+    right: 10px;
+    top: 10px;
+    font-size: 25px;
+  }
+
+  #toggle-effects {
+    top: 5px;
+    right: 5px;
+    left: auto;
+  }
+
+  #back-to-home {
+    top: 5px;
+    left: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   #titletemplate, #titletemplate2, #titletemplate3 {
     width: 25%;
